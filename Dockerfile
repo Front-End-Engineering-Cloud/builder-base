@@ -9,18 +9,24 @@ WORKDIR /fec
 RUN npm config set registry https://registry.npm.taobao.org/
 
 # install yarn
-RUN npm i yarn -g
+# RUN npm i yarn -g
+
+# update npm
+# https://github.com/npm/npm/issues/14042
+# RUN curl -L https://npmjs.org/install.sh | sh
 
 # copy config files
 COPY ./package.json ./
-COPY ./yarn.lock ./
+# COPY ./npm-shrinkwrap.json ./
+# COPY ./yarn.lock ./
 
 # install packages
-RUN yarn install
+RUN npm install
 
 # remove config files
 RUN rm ./package.json
-RUN rm ./yarn.lock
+# RUN rm ./npm-shrinkwrap.json
+# RUN rm ./yarn.lock
 
 # expose port
 EXPOSE 80
