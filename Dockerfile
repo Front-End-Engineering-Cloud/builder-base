@@ -6,7 +6,7 @@ MAINTAINER nighca "nighca@live.cn"
 WORKDIR /fec
 
 # configure npm
-RUN npm config set registry https://registry.npm.taobao.org/
+# RUN npm config set registry https://registry.npm.taobao.org/
 
 # install yarn
 # RUN npm i yarn -g
